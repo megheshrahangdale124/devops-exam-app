@@ -37,7 +37,7 @@ jobs:
           trivy fs --security-checks vuln,config --format table -o trivy-fs-report.html backend
 
       - name: Upload Trivy Report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trivy-fs-report
           path: trivy-fs-report.html
@@ -88,7 +88,7 @@ jobs:
           curl -I http://localhost:5000 || true
 
       - name: Archive Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: trivy-fs-report
           path: trivy-fs-report.html
