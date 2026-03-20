@@ -73,6 +73,17 @@ questions = [
         "question": "Which Git command merges changes from one branch into another?",
         "options": ["git clone", "git merge", "git push", "git stash"],
         "answer": "git merge"
+    },
+    {
+        "question": "Which Git command merges changes from one branch into another?",
+        "options": ["git clone", "git merge", "git push", "git stash"],
+        "answer": "git merge"
+    },
+    {
+        "question": "Which Git command merges changes from one branch into another?",
+        "options": ["git clone", "git merge", "git push", "git stash"],
+        "answer": "git merge"
     }
+
    
 ]
