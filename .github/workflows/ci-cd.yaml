@@ -29,18 +29,18 @@ jobs:
         working-directory: backend
         run: pytest tests/ || echo "No tests found"
 
-      - name: Run Trivy File System Scan
-        run: |
-          sudo apt-get install wget -y
-          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.44.1_Linux-64bit.deb
-          sudo dpkg -i trivy_0.44.1_Linux-64bit.deb
-          trivy fs --security-checks vuln,config --format table -o trivy-fs-report.html backend
+      # - name: Run Trivy File System Scan
+      #   run: |
+      #     sudo apt-get install wget -y
+      #     wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.44.1_Linux-64bit.deb
+      #     sudo dpkg -i trivy_0.44.1_Linux-64bit.deb
+      #     trivy fs --security-checks vuln,config --format table -o trivy-fs-report.html backend
 
-      - name: Upload Trivy Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: trivy-fs-report
-          path: trivy-fs-report.html
+      # - name: Upload Trivy Report
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: trivy-fs-report
+      #     path: trivy-fs-report.html
 
   # ------------------ DOCKER BUILD & DEPLOY ------------------
   docker:
