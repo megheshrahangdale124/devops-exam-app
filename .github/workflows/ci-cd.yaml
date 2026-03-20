@@ -79,6 +79,11 @@ jobs:
           '
           sleep 10
 
+      
+
+      - name: push image to dockerhub
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/python-app:${{ github.run_number }} 
+        # if you want to push the image to dockerhub then you can uncomment the above code and push the image to dockerhub
       - name: Verify Deployment
         run: |
           echo "=== Container Status ==="
@@ -86,9 +91,3 @@ jobs:
 
           echo "=== Testing Flask Endpoint ==="
           curl -I http://localhost:5000 || true
-
-      - name: Archive Artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: trivy-fs-report
-          path: trivy-fs-report.html
